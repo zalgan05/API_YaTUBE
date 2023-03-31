@@ -7,6 +7,8 @@ class IsAuthorOrReadOnly(permissions.BasePermission):
     Assumes the model instance has an `owner` attribute.
     """
 
+    message = 'Только автору доступно действие.'
+
     def has_object_permission(self, request, view, obj):
         if request.method in permissions.SAFE_METHODS:
             return True
